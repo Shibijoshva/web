@@ -1,0 +1,154 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden;
+  background-color: #DBBCDF;
+}
+
+/* Welcome card */
+.welcome-card {
+  background: white;
+  padding: 3em;
+  border-radius: 20px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  max-width: 90%;
+  animation: zoomIn 1.5s ease-out forwards;
+  margin: auto;
+  margin-top: 10%;
+}
+
+.welcome-card h1 {
+  font-size: 2.8em;
+  color: #d63384;
+  margin-bottom: 0.5em;
+}
+
+.welcome-card p {
+  font-size: 1.2em;
+  color: #444;
+  margin-bottom: 2em;
+}
+
+.welcome-card button {
+  padding: 0.8em 2em;
+  font-size: 1.1em;
+  background: #ff4d88;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 0 15px #ff4d88;
+  transition: all 0.3s ease;
+}
+
+.welcome-card button:hover {
+  background: #ff1a66;
+  box-shadow: 0 0 25px #ff1a66, 0 0 10px #ff1a66;
+  transform: scale(1.05);
+}
+
+@keyframes zoomIn {
+  0% { transform: rotateY(90deg) scale(0.5); opacity: 0; }
+  100% { transform: rotateY(0deg) scale(1); opacity: 1; }
+}
+
+/* Envelope */
+.envelope {
+  width: 220px;
+  height: 160px;
+  position: relative;
+  background: #fef2f2;
+  cursor: pointer;
+  border: 3px solid #fca5a5;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  border-radius: 10px;
+}
+
+.envelope:hover {
+  transform: scale(1.05);
+}
+
+.flap {
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  background: #fca5a5;
+  top: 0;
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+  transition: transform 0.6s ease;
+  transform-origin: top;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.envelope.open .flap {
+  transform: rotateX(180deg);
+}
+
+.invitation-img {
+  display: none;
+  margin-top: 20px;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  max-width: 90%;
+}
+
+.envelope.open + .invitation-img {
+  display: block;
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Floating hearts */
+.heart {
+  width: 20px;
+  height: 20px;
+  background-color: #ff85a2;
+  position: absolute;
+  top: 100%;
+  animation: floatUp 10s linear infinite;
+  transform: rotate(45deg);
+  border-radius: 50% 50% 0 0;
+}
+
+.heart::before,
+.heart::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #ff85a2;
+  border-radius: 50%;
+}
+
+.heart::before { top: -10px; left: 0; }
+.heart::after { top: 0; left: -10px; }
+
+@keyframes floatUp {
+  0% { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(-120vh) scale(1.5); opacity: 0; }
+}
+
+/* Buttons */
+.next-btn {
+  padding: 0.10em 2em;
+  font-size: 1.1em;
+  background: #ff4d88;
+  color: rgb(217, 214, 214);
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0 0 15px #ff4d88;
+  transition: all 0.3s ease;
+}
+
+.next-btn:hover {
+  background: #ff1a66;
+  box-shadow: 0 0 25px #ff1a66, 0 0 10px #ff1a66;
+  transform: scale(1.05);
+}
